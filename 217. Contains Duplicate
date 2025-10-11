@@ -1,0 +1,40 @@
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        Set <Integer> check= new HashSet<>();
+        for(int i=0;i<nums.length;i++){
+            if(check.contains(nums[i])){
+                return true;
+            }
+            check.add(nums[i]);
+        }
+            return false;
+    }
+}
+//The code uses a HashSet, which only stores unique elements.
+
+As it loops through each number in the array:
+
+If a number is already in the set, it means we've seen it before → duplicate found → return true.
+
+Otherwise, add the number to the set and continue.
+
+If the loop finishes without finding any duplicates, return false.
+
+💡 Example Walkthrough:
+
+Let’s say:
+
+nums = [1, 2, 3, 4, 1]
+
+
+Step 1: check = {} (empty set)
+
+i = 0 → 1 not in set → add → check = {1}
+
+i = 1 → 2 not in set → add → check = {1, 2}
+
+i = 2 → 3 not in set → add → check = {1, 2, 3}
+
+i = 3 → 4 not in set → add → check = {1, 2, 3, 4}
+
+i = 4 → 1 is in set → return true //
